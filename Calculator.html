@@ -59,7 +59,7 @@ function limit(element)
 <!-- Code example from https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_number_get -->          
 <!-- Added Drop down box https://www.dummies.com/web-design-development/site-development/how-to-create-a-drop-down-list-in-an-html5-form/  -->
       
-<h3>Enter Dollars Earned</h3>
+<h3>Enter Dollars Earned:</h3>
 
 $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours"> .
 <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Minutes">
@@ -74,7 +74,7 @@ var Hours = +document.getElementById("Hours").value;
   alert(Hours);
 var Minutes = +document.getElementById("Minutes").value;
 alert(Minutes);
-var Time += (Hours * 60) + Math.round(Minutes * .6);
+var Time = (Hours * 60) + Math.round(Minutes * .6);
 
 document.getElementById("TotalTime").innerHTML = Time;
 }
