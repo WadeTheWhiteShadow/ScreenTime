@@ -1,3 +1,4 @@
+   
 <!DOCTYPE html> 
   
 <html> 
@@ -13,6 +14,22 @@
            width: 40px;
           }
         </style>
+
+<style>
+.btn-group button {
+  float: left; 
+  }
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table
+  }
+
+</style>
+
+<body>
+
 
 <!--Make full screen code from: -->
 <!-- https://www.w3schools.com/css/css_rwd_viewport.asp -->
@@ -67,8 +84,10 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
 <h3><p id="TimeMessage"></p>
   <p id="TotalTime"></p></h3>
 
-<button onclick="Timer()" id="Timer">Start Timer</button><br>
-<button onclick="Pause()" id="Pause">Pause Timer</button><br>
+<div class="btn-group">
+<button onclick="Timer()" id="Timer">Start Timer</button>
+<button onclick="Pause()" id="Pause">Pause Timer</button>
+      </div>
 
 <h3><p id="TimeLeftMessage"></p><h3>
 <p id="TimeLeft"></p>
@@ -76,22 +95,16 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
 <script>
 var Time = 0;
 function AddTime() { 
-
 document.getElementById("TimeMessage").innerHTML = "Computer and phone time:";
-
 var Hours = +document.getElementById("Hours").value;
 var Minutes = +document.getElementById("Minutes").value;
-Time = Time + (Hours * 60) + Math.round(Minutes * .6);
-
+Time = Time + (Hours * 60) + Minutes * .6;
 var TimeString = parseInt(Time / 60) + " Hours " + Time % 60 + " Minutes"
-
 document.getElementById("Hours").value = "";
 document.getElementById("Minutes").value = "";
-
 document.getElementById("TotalTime").innerHTML = TimeString;
 }
 </script>
     
     </body> 
 </html> 
-
