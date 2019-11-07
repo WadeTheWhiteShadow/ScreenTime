@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html> 
   
 <html> 
@@ -12,7 +10,7 @@
 
         <style>
         input[type=text]{
-           width: 20px;
+           width: 36px;
            } 
         </style>
 
@@ -76,9 +74,10 @@ var Hours = +document.getElementById("Hours").value;
 var Minutes = +document.getElementById("Minutes").value;
 Time = Time + (Hours * 60) + Math.round(Minutes * .6);
 
-document.getElementById("TotalTime").innerHTML = Time;
+var TimeString = parseInt(Time / 60) + " Hours " + Time % 60 + " Minutes"
+
+document.getElementById("TotalTime").innerHTML = TimeString;
 }
 </script>
     
     </body> 
-</html> 
