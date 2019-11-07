@@ -76,8 +76,12 @@ Time = Time + (Hours * 60) + Math.round(Minutes * .6);
 
 var TimeString = parseInt(Time / 60) + " Hours " + Time % 60 + " Minutes"
 
+document.getElementById("Hours").value = "";
+document.getElementById("Minutes").value = "";
+
 document.getElementById("TotalTime").innerHTML = TimeString;
 }
 </script>
     
     </body> 
+</html> 
