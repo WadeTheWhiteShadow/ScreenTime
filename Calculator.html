@@ -10,11 +10,11 @@
 
         <style>
         input[type=text]{
-           width: 36px;
-           } 
+           width: 40px;
+          }
         </style>
 
-<!--Make full screen code from: -->
+!--Make full screen code from: -->
 <!-- https://www.w3schools.com/css/css_rwd_viewport.asp -->
 
 <!-- https://stackoverflow.com/questions/6483425/prevent-iphone-from-zooming-in-on-select-in-web-app -->
@@ -64,12 +64,21 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
 
 <button onclick="AddTime()">Add Time</button><br>
 
-<h3>Computer and Phone time is:<h3>
-<p id="TotalTime"></p>
-      
+<h3><p id="TimeMessage"></p>
+  <p id="TotalTime"></p></h3>
+
+<button onclick="Timer()" id="Timer">Start Timer</button><br>
+<button onclick="Pause()" id="Pause">Pause Timer</button><br>
+
+<h3><p id="TimeLeftMessage"></p><h3>
+<p id="TimeLeft"></p>
+
 <script>
 var Time = 0;
-function AddTime() {
+function AddTime() { 
+
+document.getElementById("TimeMessage").innerHTML = "Computer and phone time:";
+
 var Hours = +document.getElementById("Hours").value;
 var Minutes = +document.getElementById("Minutes").value;
 Time = Time + (Hours * 60) + Math.round(Minutes * .6);
@@ -85,3 +94,4 @@ document.getElementById("TotalTime").innerHTML = TimeString;
     
     </body> 
 </html> 
+
