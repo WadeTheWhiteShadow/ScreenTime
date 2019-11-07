@@ -64,17 +64,17 @@ function limit(element)
 $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours"> .
 <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Minutes">
 
-<button onclick="AddTime()">Add Time</button>
+<button onclick="AddTime()">Add Time</button><br>
 
-"Computer and Phone time is: <p id="TotalTime"></p>
+<h3>Computer and Phone time is:<h3>
+<p id="TotalTime"></p>
       
 <script>
+var Time = 0;
 function AddTime() {
 var Hours = +document.getElementById("Hours").value;
-  alert(Hours);
 var Minutes = +document.getElementById("Minutes").value;
-alert(Minutes);
-var Time = (Hours * 60) + Math.round(Minutes * .6);
+Time = Time + (Hours * 60) + Math.round(Minutes * .6);
 
 document.getElementById("TotalTime").innerHTML = Time;
 }
