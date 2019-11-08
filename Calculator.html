@@ -113,7 +113,9 @@ var timer_is_on = 0;
 
 function timedCount() {
   t = setTimeout(timedCount, 1000);
-  Time -= 1/60
+  If (Time >= 1/60){
+      Time -= 1/60
+      }
   TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
   document.getElementById("TotalTime").innerHTML = TimeString;
 }
