@@ -110,17 +110,26 @@ document.getElementById("TotalTime").innerHTML = TimeString;
 
 var t;
 var timer_is_on = 0;
+var Start;
+var SecPast;
+var Display;
+var delta; 
 
 function timedCount() {
-  t = setTimeout(timedCount, 1000);
-  Time -= 1/60
-  TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
+
+setInterval(function() {
+   delta = Date.now() - start; // milliseconds elapsed since start
+   Secpast = Math.floor(delta / 1000); // in seconds
+  
+  Display = Time - SecPast;
+  TimeString = parseInt(Display / 60) + " Hours " + parseInt(Display % 60) + " Minutes " + parseInt( ((Display % 60) -parseInt(Display % 60)) * 60) + " Seconds";
   document.getElementById("TotalTime").innerHTML = TimeString;
 }
 
 function startCount() {
   if (!timer_is_on) {
     timer_is_on = 1;
+    start = Date.now();
     timedCount();
   }
 }
