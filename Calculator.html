@@ -85,8 +85,8 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
   <p id="TotalTime"></p></h3>
 
 <div class="btn-group">
-<button onclick="Start()" id="Start">Start Timer</button>
-<button onclick="setTimeout Start()"",1000);" id="Pause">Pause Timer</button>
+<button onclick="startCount()">Start Timer</button>
+<button onclick="stopCount()">Pause Timer</button>
       </div>
 
 <h3><p id="TimeLeftMessage"></p><h3>
@@ -108,10 +108,29 @@ document.getElementById("TotalTime").innerHTML = TimeString;
 <!-- Code Example at: -->
 <!-- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout2 -->
 
+var t;
+var timer_is_on = 0;
+
+function timedCount() {
+  t = setTimeout(timedCount, 1000);
   Time -= 1/60
   TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
   document.getElementById("TotalTime").innerHTML = TimeString;
   t = setTimeout(timedCount, 1000);
+
+}
+
+function startCount() {
+  if (!timer_is_on) {
+    timer_is_on = 1;
+    timedCount();
+  }
+}
+
+function stopCount() {
+  clearTimeout(t);
+  timer_is_on = 0;
+}
 
 </script>
     
