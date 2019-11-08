@@ -1,10 +1,9 @@
-   
 <!DOCTYPE html> 
   
 <html> 
     <head> 
         <title> 
-              CommGap Pay Calculator
+              Screen Time
         </title> 
       <!-- Css solution to width problem -->
 <!-- https://stackoverflow.com/questions/22709792/input-type-number-wont-resize -->
@@ -18,6 +17,8 @@
 <style>
 .btn-group button {
   float: left; 
+  padding: 5px;
+  margin: 5px;
   }
 /* Clear floats (clearfix hack) */
 .btn-group:after {
@@ -25,8 +26,9 @@
   clear: both;
   display: table
   }
-
 </style>
+
+</head>
 
 <body>
 
@@ -53,8 +55,6 @@ input[type="text"] {
   font-size: inherit;
 }
 </style>
-
-    </head>
 
     <body>
 
@@ -85,8 +85,8 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
   <p id="TotalTime"></p></h3>
 
 <div class="btn-group">
-<button onclick="Timer()" id="Timer">Start Timer</button>
-<button onclick="Pause()" id="Pause">Pause Timer</button>
+<button onclick="Start()" id="Start">Start Timer</button>
+<button onclick="setTimeout Start()"",1000);" id="Pause">Pause Timer</button>
       </div>
 
 <h3><p id="TimeLeftMessage"></p><h3>
@@ -104,6 +104,15 @@ document.getElementById("Hours").value = "";
 document.getElementById("Minutes").value = "";
 document.getElementById("TotalTime").innerHTML = TimeString;
 }
+
+<!-- Code Example at: -->
+<!-- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout2 -->
+
+  Time -= 1/60
+  TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
+  document.getElementById("TotalTime").innerHTML = TimeString;
+  t = setTimeout(timedCount, 1000);
+
 </script>
     
     </body> 
