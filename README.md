@@ -7,4 +7,4 @@ Earns 1 hour of screen time.
 
 This allows him to keep track of it
 
-Try Me: http://htmlpreview.github.io/?https://github.com/WadeTheWhiteShadow/ScreenTime/blob/master/Calculator.html
+Try Me: http://htmlpreview.github.io/?https://github.com/ZWhiteShadow/ScreenTime/blob/master/Calculator.html
