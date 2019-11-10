@@ -123,6 +123,7 @@ function timedCount() {
 
   t = setTimeout(timedCount, 1000);
   timepast = (parseInt( (start - Date.now()) /1000) / 60);
+  timepast *= -1;
 
   TimeString = parseInt((Time - timepast) / 60) + " Hours " + parseInt((Time - timepast) % 60) + " Minutes " + parseInt( (((Time - timepast) % 60) -parseInt((Time - timepast) % 60)) * 60) + " Seconds";
 
@@ -140,6 +141,7 @@ function startCount() {
 }
 
 function stopCount() {
+  time += timepast;
   clearTimeout(t);
   timer_is_on = 0;
 }
@@ -148,4 +150,3 @@ function stopCount() {
 
     </body> 
 </html> 
-
