@@ -116,16 +116,17 @@ document.getElementById("TotalTime").innerHTML = TimeString;
 <!-- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_settimeout_cleartimeout2 -->
 var t;
 var timer_is_on = 0;
-var start = 0;
+var start;
+var timepast;
 
 function timedCount() {
 
   t = setTimeout(timedCount, 1000);
-  Time -= 1/60
+  timepast = (parseInt( (start - Date.now()) /1000) / 60);
 
-  TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
+  TimeString = parseInt((Time - timepast) / 60) + " Hours " + parseInt((Time - timepast) % 60) + " Minutes " + parseInt( (((Time - timepast) % 60) -parseInt((Time - timepast) % 60)) * 60) + " Seconds";
 
-  document.getElementById("TotalTime").innerHTML = parseInt( (start - Date.now()) /1000);
+  document.getElementById("TotalTime").innerHTML = TimeString
 }
 
 function startCount() {
@@ -147,3 +148,4 @@ function stopCount() {
 
     </body> 
 </html> 
+
