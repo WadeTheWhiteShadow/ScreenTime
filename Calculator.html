@@ -89,7 +89,6 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
       </div>
 
 <h3><p id="TimeLeftMessage"></p><h3>
-<p id="TimeLeft"></p>
 
 <script>
 var Time = 0;
@@ -117,13 +116,13 @@ document.getElementById("TotalTime").innerHTML = TimeString;
 var t;
 var timer_is_on = 0;
 var start;
-var timepast;
+var timepast = 0;
+
 
 function timedCount() {
 
   t = setTimeout(timedCount, 1000);
-  timepast = (parseInt( (start - Date.now()) /1000) / 60);
-  timepast *= -1;
+  timepast = (parseInt( ( start - Date.now() ) /1000) / 60) * -1;
 
   TimeString = parseInt((Time - timepast) / 60) + " Hours " + parseInt((Time - timepast) % 60) + " Minutes " + parseInt( (((Time - timepast) % 60) -parseInt((Time - timepast) % 60)) * 60) + " Seconds";
 
@@ -134,6 +133,8 @@ function startCount() {
 
   if (!timer_is_on) {
     start = Date.now();
+    Time -= timepast;
+    timepast = 0;
     timer_is_on = 1;
     timedCount();
   }
@@ -141,9 +142,8 @@ function startCount() {
 }
 
 function stopCount() {
-  time += timepast;
-  clearTimeout(t);
   timer_is_on = 0;
+  clearTimeout(t);
 }
 
 </script>
