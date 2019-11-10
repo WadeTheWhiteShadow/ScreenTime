@@ -122,9 +122,9 @@ var timepast = 0;
 function timedCount() {
 
   t = setTimeout(timedCount, 1000);
-  timepast = (parseInt( ( start - Date.now() ) /1000) / 60) * -1;
+  timepast = (parseInt( ( start - Date.now() ) /1000) / 60);
 
-  TimeString = parseInt((Time - timepast) / 60) + " Hours " + parseInt((Time - timepast) % 60) + " Minutes " + parseInt( (((Time - timepast) % 60) -parseInt((Time - timepast) % 60)) * 60) + " Seconds";
+  TimeString = parseInt((Time + timepast) / 60) + " Hours " + parseInt((Time + timepast) % 60) + " Minutes " + parseInt( (((Time + timepast) % 60) -parseInt((Time + timepast) % 60)) * 60) + " Seconds";
 
   document.getElementById("TotalTime").innerHTML = TimeString
 }
@@ -133,7 +133,7 @@ function startCount() {
 
   if (!timer_is_on) {
     start = Date.now();
-    Time -= timepast;
+    Time += timepast;
     timepast = 0;
     timer_is_on = 1;
     timedCount();
