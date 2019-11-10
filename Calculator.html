@@ -108,6 +108,8 @@ var Minutes = +document.getElementById("Minutes").value;
 
 Time = Time + (Hours * 60) + Minutes * .6;
 
+  timer_is_on = 0;  // stop timer 
+  clearTimeout(t);  // when time is added
 displayTime(Time);
 
 document.getElementById("Hours").value = "";
