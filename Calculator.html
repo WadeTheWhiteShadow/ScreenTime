@@ -88,26 +88,30 @@ $ <input type="text" onkeydown="limit(this);" onkeyup="limit(this);" id="Hours">
 <button onclick="stopCount()">Pause Timer</button>
       </div>
 
-<h3><p id="TimeLeftMessage"></p><h3>
-
 <script>
+
+function displayTime(x){
+
+  document.getElementById("TimeMessage").innerHTML = "Computer and phone time:";
+  
+  TimeString = parseInt(x / 60) + " Hours " + parseInt(x % 60) + " Minutes " + parseInt( ((x % 60) -parseInt(x % 60)) * 60) + " Seconds";
+  
+  document.getElementById("TotalTime").innerHTML = TimeString
+};
+
 var Time = 0;
 
 function AddTime() { 
-
-document.getElementById("TimeMessage").innerHTML = "Computer and phone time:";
 
 var Hours = +document.getElementById("Hours").value;
 var Minutes = +document.getElementById("Minutes").value;
 
 Time = Time + (Hours * 60) + Minutes * .6;
 
-var TimeString = parseInt(Time / 60) + " Hours " + parseInt(Time % 60) + " Minutes " + parseInt( ((Time % 60) -parseInt(Time % 60)) * 60) + " Seconds";
+displayTime(Time);
 
 document.getElementById("Hours").value = "";
 document.getElementById("Minutes").value = "";
-
-document.getElementById("TotalTime").innerHTML = TimeString;
 
 }
 
@@ -117,16 +121,17 @@ var t;
 var timer_is_on = 0;
 var start;
 var timepast = 0;
+var newtime;
 
 
 function timedCount() {
 
   t = setTimeout(timedCount, 1000);
-  timepast = (parseInt( ( start - Date.now() ) /1000) / 60);
+  timepast = ((( start - Date.now() ) /1000) / 60);
+  newtime = Time + timepast;
 
-  TimeString = parseInt((Time + timepast) / 60) + " Hours " + parseInt((Time + timepast) % 60) + " Minutes " + parseInt( (((Time + timepast) % 60) -parseInt((Time + timepast) % 60)) * 60) + " Seconds";
+displayTime(newtime);
 
-  document.getElementById("TotalTime").innerHTML = TimeString
 }
 
 function startCount() {
