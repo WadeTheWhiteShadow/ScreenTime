@@ -1,0 +1,27 @@
+/*       Css solution to width problem 
+https://stackoverflow.com/questions/22709792/input-type-number-wont-resize 
+*/
+input[type=text]{
+    width: 40px;
+   }
+
+   .btn-group button {
+    float: left; 
+    padding: 5px;
+    margin: 5px;
+    }
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table
+    }
+/* To disable Auto zoom 
+   https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+   */ 
+    body {
+        font-size: 16px;
+      }
+      input[type="text"] {
+        font-size: inherit;
+      }
