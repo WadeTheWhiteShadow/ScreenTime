@@ -7,4 +7,4 @@ Earns 1 hour of screen time.
 
 This allows him to keep track of it
 
-Try Me: www.bit.ly/2QMvNql
+Try Me: www.bit.ly/2qz6mhj
